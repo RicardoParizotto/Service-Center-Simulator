@@ -24,7 +24,6 @@ struct component{
     int min_time, max_time;  								 //Ex: atender entre min_time e max_time unidades de tempo
     int in, out;											 //indíce das filas de entrada e saída
 
-
     //retorna o id do servidor com menor tempo.
     unsigned int mintime_server(){
         int min = 0;
@@ -45,20 +44,21 @@ struct component{
 
 };
 
+/*
 struct router{
     
     router...//construtor
 
     int jhonson_queue(int queue[]){}            //retorna uma das filas conforme a distribuição uniforme de probabilidade
 };
+*/
 
 /***************************************
 *filas de pessoas
 * mutexes para filas
 *******************************************/
-std::queue<agent> queues[;
-pthread_mutex_t * lockqueue;
-
+std::queue<agent> queues[MAX_S];
+pthread_mutex_t lockqueue[MAX_S];
 
 
 //função para as threads dos centros
