@@ -1,7 +1,6 @@
-#include "../lib/serv_center.hh"
 
+#include "../lib/run.hh"
 
-unsigned long ST; 				  //SIMULATION TIME
 
 
 

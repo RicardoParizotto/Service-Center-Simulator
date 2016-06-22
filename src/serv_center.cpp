@@ -1,6 +1,5 @@
 #include "../lib/serv_center.hh"
 
-unsigned long GVT;                //global virtual time
 
 
 void component::push_in( agent v ){

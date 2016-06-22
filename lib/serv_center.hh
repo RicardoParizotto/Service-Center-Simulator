@@ -4,6 +4,8 @@
  *
  */
 
+#ifndef SERV_CENTER_INCLUDED
+#define SERV_CENTER_INCLUDED
 
 
 #include <queue>   
@@ -31,7 +33,7 @@ struct server{
 
 class component{
     private:								
-                    		                             
+        unsigned long queue_wait; 		                             
         std::queue<agent> queue;
 
     public:
@@ -45,12 +47,15 @@ class component{
         void done( void );
         void push_in ( agent );
 };
+/*
+class router{
+	
 
-int qtd_cmp, init;
-component centers[MAX_S];
+}
+*/
 
 
-
+#endif
 
 
 
