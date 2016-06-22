@@ -10,45 +10,40 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/time.h>
+#include <time.h>
 
-#define MAX_S 1000 										//numero máximo de servidores
+#define MAX_S 1000 				  //numero máximo de servidores
+
+
+unsigned long GVT;                //global virtual time
 
 struct agent{
-    int id, time;
+    int id;
+    unsigned long time;
 };
 
+struct server{
+    bool use;
+    int min, max;
+    unsigned long final_time;
 
-struct component{
+    agent user;
+}
+
+class component{
     private:
-	unsigned int servers[MAX_S], numb_servers;               //indice é o servidor e o valor é o tempo do servidor
-    	int min_time, max_time;  				     //Ex: atender entre min_time e max_time unidades de tempo
-    	int in, out;		                             //indíce das filas de entrada e saída
+        server serv[MAX_S]
+	    unsigned int numb_servers;                       //indice é o servidor e o valor é o tempo do servidor
+    	int min_time, max_time;  				         //Ex: atender entre min_time e max_time unidades de tempo
+    	int in, out;
+                    		                             //indíce das filas de entrada e saída
+        std::queue<agent> queue;
 
     public:
-	unsigned int mintime_server();			     //retorna o id do servidor com menor tempo.
-    	void serving(int server, agent * p);		     //servidor "server" atende a pessoa "p"
+        void serving( void );
+        void done( void );
+        void push_in ( agent );
 };
-
-/*
-struct router{
-    
-    router...//construtor
-
-    int jhonson_queue(int queue[]){}            //retorna uma das filas conforme a distribuição uniforme de probabilidade
-};
-*/
-
-/***************************************
-*filas de pessoas
-* mutexes para filas
-*******************************************/
-
-std::queue<agent> queues[MAX_S];
-pthread_mutex_t lockqueue[MAX_S];
-
-//função para as threads dos centros
-void * centro(void * v);
-
 
 
 
