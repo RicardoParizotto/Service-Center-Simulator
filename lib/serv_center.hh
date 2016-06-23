@@ -1,6 +1,6 @@
 /*UNIVERSIDADE FEDERAL DA FRONTEIRA SUL - CHAPECÓ
  *
- * ALUNOS: LUCAS ROSTIROLLA, MAIKON PEREIRA, RICARDO PARIZOTTO
+ * Autor: RICARDO PARIZOTTO
  *
  */
 
@@ -51,11 +51,8 @@ class component{
         void done( unsigned long, component *);
         void push_in ( agent );
 };
-/*
-class router : public box{
-    
-}
-*/
+
+
 class Simulation{
     public:
         int qtd_cmp, init;
