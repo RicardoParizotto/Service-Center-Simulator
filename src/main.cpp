@@ -20,7 +20,12 @@ int main ( void ){
         while(id_srv--)
             scanf("%d-%d;", &run.centers[id].serv[id_srv].min, &run.centers[id].serv[id_srv].max);
         
-        if(aux) scanf("%d", &run.centers[id].out);   
+        if(aux){
+            scanf("%d", &run.centers[id].out);
+            run.centers[id].type = NORMAL;  
+        }else
+            run.centers[id].type = OUT;
+      
     }
 
     scanf("%lu", &run.ST);

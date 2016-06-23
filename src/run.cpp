@@ -4,10 +4,10 @@
 void Simulation::agent_generator( void ){
     agent aux;
 
-    for ( int qtd_agent = 0; qtd_agent < 5; qtd_agent++ ){
+    for ( int qtd_agent = 0; qtd_agent < 8; qtd_agent++ ){
 
         aux.id = qtd_agent;
-        aux.time = run.GVT;
+        aux.time = GVT;
 
         centers[init].push_in(aux);
     }
@@ -16,12 +16,12 @@ void Simulation::agent_generator( void ){
 
 
 void Simulation::start(){
-	this->GVT = 0;
-	while( this->GVT <= this->ST ){
+	GVT = 0;
+	while( GVT <= this->ST ){
         for (int i = 0; i < qtd_cmp; i++){
-            centers[i].done(GVT);
-            centers[i].serving(GVT);
+            centers[i].done( GVT, &centers[centers[i].out] );
+            centers[i].serving( GVT );
         }
-        this->GVT++;
+        GVT++;
     }
 }

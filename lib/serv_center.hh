@@ -15,6 +15,10 @@
 
 #define MAX_S 1000 				  //numero máximo de servidores
 
+#define OUT 0
+#define NORMAL 1
+#define ROUTER 2
+
 struct agent{
     int id;
     unsigned long time;
@@ -34,16 +38,17 @@ class component{
     private:								
         unsigned long queue_wait; 	
         std::queue<agent> queue;
-	                             
+	                            
 
     public:
 
         server serv[MAX_S];
 	    unsigned int numb_servers;                      
     	int out, id;
+        unsigned int type;
 
         void serving( unsigned long );
-        void done( unsigned long );
+        void done( unsigned long, component *);
         void push_in ( agent );
 };
 /*
@@ -57,6 +62,7 @@ class Simulation{
         component centers[MAX_S];
 
         unsigned long GVT;                //global virtual time
+
         unsigned long ST;	              //SIMULATION TIME    
 
         void agent_generator( void );
@@ -64,7 +70,6 @@ class Simulation{
 };
 
 static Simulation run;
-
 
 
 #endif
