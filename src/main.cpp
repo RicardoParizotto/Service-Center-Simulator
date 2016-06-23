@@ -1,28 +1,27 @@
 
-#include "../lib/run.hh"
-
-
+#include "../lib/serv_center.hh"
 
 
 
 int main ( void ){
 
-	scanf("%d-%d", &qtd_cmp, &init);
+	scanf("%d-%d", &run.qtd_cmp, &run.init);
 
-	while(qtd_cmp--){
+    int aux = run.qtd_cmp;
+
+	while(aux--){
         int id, id_srv;
 	    scanf("%d; %d:", &id, &id_srv);
              
         while(id_srv--)
-            scanf("%d-%d;", &centers[id].serv[id_srv].min, &centers[id].serv[id_srv].max);
+            scanf("%d-%d;", &run.centers[id].serv[id_srv].min, &run.centers[id].serv[id_srv].max);
         
-        scanf("%d", &centers[id].out);
+        scanf("%d", &run.centers[id].out);
 
 	}
 
-    scanf("%lu", &ST);
+    scanf("%lu", &run.ST);
 
-    run
     
     return 0;
 }

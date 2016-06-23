@@ -9,11 +9,8 @@
 
 
 #include <queue>   
-#include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/time.h>
 #include <time.h>
 
 #define MAX_S 1000 				  //numero máximo de servidores
@@ -43,10 +40,24 @@ class component{
     	int out;		
 
 
-        void serving( void );
-        void done( void );
+        void serving();
+        void done();
         void push_in ( agent );
 };
+
+class Simulation{
+    public:
+        int qtd_cmp, init;
+        component centers[MAX_S];
+
+        unsigned long GVT;                //global virtual time
+        unsigned long ST;	              //SIMULATION TIME    
+
+
+        void run();
+};
+
+static Simulation run;
 /*
 class router{
 	

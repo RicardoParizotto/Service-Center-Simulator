@@ -1,4 +1,4 @@
-#include "../lib/run.hh"
+#include "../lib/serv_center.hh"
 
 
 /*gerar entidades com GVT = 0*/
