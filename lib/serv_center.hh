@@ -37,7 +37,8 @@ class component{
 
         server serv[MAX_S];
 	    unsigned int numb_servers;                      
-    	int out;		
+    	int out;
+        int id;	
 
 
         void serving();
@@ -53,8 +54,8 @@ class Simulation{
         unsigned long GVT;                //global virtual time
         unsigned long ST;	              //SIMULATION TIME    
 
-
-        void run();
+        void agent_generator( void );
+        void start( void );
 };
 
 static Simulation run;
