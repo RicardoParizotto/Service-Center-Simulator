@@ -7,7 +7,7 @@ void Simulation::agent_generator( void ){
     for ( int qtd_agent = 0; qtd_agent < 5; qtd_agent++ ){
 
         aux.id = qtd_agent;
-        aux.time = GVT;
+        aux.time = run.GVT;
 
         centers[init].push_in(aux);
     }
@@ -16,13 +16,12 @@ void Simulation::agent_generator( void ){
 
 
 void Simulation::start(){
-	GVT = 0;
-	while( GVT <= ST ){
+	this->GVT = 0;
+	while( this->GVT <= this->ST ){
         for (int i = 0; i < qtd_cmp; i++){
-           // printf("%lu", GVT);
-            centers[i].done();
-            centers[i].serving();
+            centers[i].done(GVT);
+            centers[i].serving(GVT);
         }
-        GVT++;
+        this->GVT++;
     }
 }

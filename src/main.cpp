@@ -7,11 +7,11 @@ int main ( void ){
 
 	scanf("%d %d", &run.qtd_cmp, &run.init);
 
-    int aux = run.qtd_cmp - 1;
+    int aux = run.qtd_cmp;
 
 	while(aux--){
         int id, id_srv;
-	    scanf("%d;%d:", &id, &id_srv);
+        scanf("%d;%d:", &id, &id_srv);
         
         run.centers[id].id = id;   //hehe
 
@@ -20,11 +20,8 @@ int main ( void ){
         while(id_srv--)
             scanf("%d-%d;", &run.centers[id].serv[id_srv].min, &run.centers[id].serv[id_srv].max);
         
-        scanf("%d", &run.centers[id].out);
-        
-
-
-	}
+        if(aux) scanf("%d", &run.centers[id].out);   
+    }
 
     scanf("%lu", &run.ST);
 

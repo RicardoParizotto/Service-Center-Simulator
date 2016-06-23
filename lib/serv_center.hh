@@ -28,24 +28,29 @@ struct server{
     agent user;
 };
 
+
+
 class component{
     private:								
-        unsigned long queue_wait; 		                             
+        unsigned long queue_wait; 	
         std::queue<agent> queue;
+	                             
 
     public:
 
         server serv[MAX_S];
 	    unsigned int numb_servers;                      
-    	int out;
-        int id;	
+    	int out, id;
 
-
-        void serving();
-        void done();
+        void serving( unsigned long );
+        void done( unsigned long );
         void push_in ( agent );
 };
-
+/*
+class router : public box{
+    
+}
+*/
 class Simulation{
     public:
         int qtd_cmp, init;
@@ -59,12 +64,7 @@ class Simulation{
 };
 
 static Simulation run;
-/*
-class router{
-	
 
-}
-*/
 
 
 #endif
