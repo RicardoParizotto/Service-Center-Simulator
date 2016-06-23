@@ -10,7 +10,6 @@ void component::serving(){
 	for ( int i = 0; i < numb_servers; i++ ){
 		if( !serv[i].use ){
 			if( !queue.empty() && queue.front().time <= run.GVT ){
-                printf("cu");
 				serv[i].use = true;
 				serv[i].user = queue.front();
                 queue.pop();
@@ -24,6 +23,7 @@ void component::serving(){
 
 void component::done(){
 	for( int i = 0; i < numb_servers; i++ ){
+        printf("%lu", run.GVT);
 		if(serv[i].use && serv[i].final_time == run.GVT){
 			serv[i].use = false;
             printf("%d - %lu", serv[i].user.id, serv[i].user.time);

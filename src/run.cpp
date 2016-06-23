@@ -19,6 +19,7 @@ void Simulation::start(){
 	GVT = 0;
 	while( GVT <= ST ){
         for (int i = 0; i < qtd_cmp; i++){
+           // printf("%lu", GVT);
             centers[i].done();
             centers[i].serving();
         }
