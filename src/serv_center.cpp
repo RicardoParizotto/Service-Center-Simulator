@@ -7,17 +7,17 @@ void component::push_in( agent v ){
 }
 
 void component::serving( unsigned long GVT){
-	for ( int i = 0; i < numb_servers; i++ ){
-		if( !serv[i].use ){
-			if( !queue.empty() && queue.front().time <= GVT ){
-				serv[i].use = true;
-				serv[i].user = queue.front();
+    for ( int i = 0; i < numb_servers; i++ ){
+        if( !serv[i].use ){
+            if( !queue.empty() && queue.front().time <= GVT ){
+                serv[i].use = true;
+                serv[i].user = queue.front();
                 queue.pop();
-				srand(time(NULL));
-				serv[i].final_time = rand()%(serv[i].max - serv[i].min) + serv[i].min + GVT; 			
-			}	
-		}
-	}
+                srand(time(NULL));
+                serv[i].final_time = rand()%(serv[i].max - serv[i].min) + serv[i].min + GVT; 			
+            }	
+        }
+    }
 }
 
 void component::done( unsigned long GVT, component * next){

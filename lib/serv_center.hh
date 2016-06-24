@@ -66,6 +66,24 @@ class Simulation{
         void start( void );
 };
 
+
+struct chance{
+    int id_out;
+    double prob;
+};
+
+class Router{
+    private:
+        chance out1, out2;
+        std::queue<agent> queue;
+
+    public:
+        int id;
+
+        int done();
+        
+};
+
 static Simulation run;
 
 
