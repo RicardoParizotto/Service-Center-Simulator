@@ -32,57 +32,68 @@ struct server{
     agent user;
 };
 
-
-
-class component{
-    private:								
-        unsigned long queue_wait; 	
+class Box{
+    public:
         std::queue<agent> queue;
-	                            
+        int id;
 
+        void done();
+         void push_in ( agent );    
+};
+
+
+
+class component : public Box{
+    private:								
+     //   unsigned long queue_wait; 	
+	                            
     public:
 
-        server serv[MAX_S];
-	    unsigned int numb_servers;                      
-    	int out, id;
-        unsigned int type;
+        unsigned int numb_servers;  
+        server serv[MAX_S];                 
+    	int out;
+        char out_t;
+
 
         void serving( unsigned long );
-        void done( unsigned long, component *);
-        void push_in ( agent );
+        void done( unsigned long, Box *);
+};
+
+
+struct chance{
+    int id_out;
+    char out_t;
+    unsigned prob;
+};
+
+
+
+class Router : public Box{    
+    public:
+        chance out1, out2;
+
+        void done(component, component);      
 };
 
 
 class Simulation{
     public:
-        int qtd_cmp, init;
-        component centers[MAX_S];
+
 
         unsigned long GVT;                //global virtual time
-
         unsigned long ST;	              //SIMULATION TIME    
+
+        int qtd_cmp, qtd_rts, init;
+        component centers[MAX_S];
+        Router routers[MAX_S];
+
 
         void agent_generator( void );
         void start( void );
 };
 
 
-struct chance{
-    int id_out;
-    double prob;
-};
 
-class Router{
-    private:
-        chance out1, out2;
-        std::queue<agent> queue;
-
-    public:
-        int id;
-
-        int done();
-        
-};
 
 static Simulation run;
 

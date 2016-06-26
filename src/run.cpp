@@ -22,6 +22,8 @@ void Simulation::start(){
             centers[i].done( GVT, &centers[centers[i].out] );
             centers[i].serving( GVT );
         }
+		for (int i = 0; i < qtd_rts; i++ )
+		//	routers[i].done();
         GVT++;
     }
 }

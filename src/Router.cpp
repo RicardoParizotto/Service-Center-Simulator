@@ -3,12 +3,13 @@
 
 
 
-int router::done(){
-	//for all in queue
-		srand(time(NULL));
-		int t = rand()%100;
-		if(this->out1.prob < t) return out1.id_out;
-		else return out2.id_out;
-		//insert into out
-	
+void Router::done(component cm1, component cm2){
+    while(!this->queue.empty()){
+        srand(time(NULL));
+        int t = rand()%100;
+        if(this->out1.prob < t) 
+            cm1.push_in(queue.front());
+		else return cm1.push_in(queue.front());  /*tem que mudar aqui pra poder ter uma saida ou um router*/
+        queue.pop();
+    }	
 }

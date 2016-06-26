@@ -2,7 +2,7 @@
 
 
 
-void component::push_in( agent v ){
+void Box::push_in( agent v ){
 	queue.push(v);
 }
 
@@ -20,18 +20,18 @@ void component::serving( unsigned long GVT){
     }
 }
 
-void component::done( unsigned long GVT, component * next){
+void component::done( unsigned long GVT, Box * next){
     for( int i = 0; i < numb_servers; i++ ){
         if(serv[i].use && serv[i].final_time == GVT){
             serv[i].use = false;
-            if(this->type == OUT)
+            if(this->out_t == 'S')
                 printf("%d done in %lu\n", serv[i].user.id, serv[i].user.time); 
             else{ 
                 serv[i].user.time = GVT;
                 next->push_in(serv[i].user);
             }
-		}
-	}
+        }
+    }
 }
 
 

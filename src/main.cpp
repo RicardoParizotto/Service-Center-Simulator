@@ -8,32 +8,30 @@ int main ( void ){
     int in_id;
     int ax;
 
-    run.qtd_cmp = 0;
+    run.qtd_cmp = run.qtd_rts = 0;
+
 
     scanf("%lu", &run.ST);
 
     scanf("%d", &run.init);
 
-    while(scanf("%c %d", &in_t, &in_id )!= EOF){
+    while(scanf(" %c %d", &in_t, &in_id )!= EOF){
         switch(in_t){
             case 'C':
                     run.qtd_cmp++;
-                    run.centers[in_id].id = in_id;
+                //    run.centers[in_id].id = in_id;
                     scanf("%d", &run.centers[in_id].numb_servers);
                     for ( int i = 0; i < run.centers[in_id].numb_servers; i++ )
                         scanf("%d-%d;", &run.centers[in_id].serv[i].min, &run.centers[in_id].serv[i].max);
-            case 'D': //... fazer aqui a pira para as decisoes
-            case default: printf("ERROR"); break;
+                    scanf(" %c %d", &run.centers[in_id].out_t, &run.centers[in_id].out );
+                    break;
+            case 'D': 
+                    run.qtd_rts++;
+                    scanf(" %c %d %u", &run.routers[in_id].out1.out_t, &run.routers[in_id].out1.id_out, &run.routers[in_id].out1.prob);
+                    scanf(" %c %d %u", &run.routers[in_id].out2.out_t, &run.routers[in_id].out2.id_out, &run.routers[in_id].out2.prob);
+                    break;
+            default: printf("ERROR %c \n", in_t); 
         }
-
-        
- 
-        if(aux){
-            scanf("%d", &run.centers[id].out);
-            run.centers[id].type = NORMAL;  
-        }else
-            run.centers[id].type = OUT;
-      
     }
 
 
