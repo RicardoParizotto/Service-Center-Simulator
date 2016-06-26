@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+
 #define MAX_S 1000 				  //numero máximo de servidores
 
 #define OUT 0
@@ -37,8 +38,7 @@ class Box{
         std::queue<agent> queue;
         int id;
 
-        void done();
-         void push_in ( agent );    
+        void push_in ( agent );    
 };
 
 
@@ -72,7 +72,7 @@ class Router : public Box{
     public:
         chance out1, out2;
 
-        void done(component, component);      
+        void done(component *, component *);      
 };
 
 

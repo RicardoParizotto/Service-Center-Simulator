@@ -19,7 +19,7 @@ int main ( void ){
         switch(in_t){
             case 'C':
                     run.qtd_cmp++;
-                //    run.centers[in_id].id = in_id;
+                    run.centers[in_id].id = in_id;
                     scanf("%d", &run.centers[in_id].numb_servers);
                     for ( int i = 0; i < run.centers[in_id].numb_servers; i++ )
                         scanf("%d-%d;", &run.centers[in_id].serv[i].min, &run.centers[in_id].serv[i].max);
@@ -30,7 +30,7 @@ int main ( void ){
                     scanf(" %c %d %u", &run.routers[in_id].out1.out_t, &run.routers[in_id].out1.id_out, &run.routers[in_id].out1.prob);
                     scanf(" %c %d %u", &run.routers[in_id].out2.out_t, &run.routers[in_id].out2.id_out, &run.routers[in_id].out2.prob);
                     break;
-            default: printf("ERROR %c \n", in_t); 
+            default: printf("ERROR: %c do not expected \n", in_t); 
         }
     }
 
