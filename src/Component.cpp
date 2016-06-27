@@ -1,12 +1,9 @@
-#include "../lib/serv_center.hh"
+#include "include/Component.hh"
 
 
 
-void Box::push_in( agent v ){
-	queue.push(v);
-}
 
-void component::serving( unsigned long GVT){
+void Component::serving( unsigned long GVT){
     for ( int i = 0; i < numb_servers; i++ ){
         if( !serv[i].use ){
             if( !queue.empty() && queue.front().time <= GVT ){
@@ -20,7 +17,7 @@ void component::serving( unsigned long GVT){
     }
 }
 
-void component::done( unsigned long GVT, Box * next){
+void Component::done( unsigned long GVT, Box * next){
     for( int i = 0; i < numb_servers; i++ ){
         if(serv[i].use && serv[i].final_time == GVT){
             serv[i].use = false;

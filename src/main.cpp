@@ -1,12 +1,11 @@
 
-#include "../lib/serv_center.hh"
+#include "include/Simulation.hh"
 
 
 
 int main ( void ){
     char in_t;
     int in_id;
-    int ax;
 
     run.qtd_cmp = run.qtd_rts = 0;
 
@@ -33,7 +32,6 @@ int main ( void ){
             default: printf("ERROR: %c do not expected \n", in_t); 
         }
     }
-
 
 
     run.agent_generator();

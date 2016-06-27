@@ -1,5 +1,4 @@
-#include "../lib/serv_center.hh"
-
+#include "include/Simulation.hh"
 
 void Simulation::agent_generator( void ){
     agent aux;

@@ -1,9 +1,8 @@
-#include "../lib/serv_center.hh"
+#include "include/Router.hh"
 
 
 
-
-void Router::done(component * cm1, component * cm2){
+void Router::done(Component * cm1, Component * cm2){
     while(!(this->queue.empty())){
         srand(time(NULL));
         int t = rand()%100;
