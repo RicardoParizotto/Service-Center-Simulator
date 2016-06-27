@@ -25,15 +25,6 @@ struct agent{
     unsigned long time;
 };
 
-struct server{
-    bool use;
-    int min, max;
-    unsigned long final_time;
-
-    agent user;
-};
-
-
 
 struct chance{
     int id_out;
