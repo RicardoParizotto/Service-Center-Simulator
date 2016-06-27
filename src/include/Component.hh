@@ -21,6 +21,7 @@ class Component : public Box{
 
         void serving( unsigned long );
         void done( unsigned long, Box *);
+        void statistics( void );
 };
 
 

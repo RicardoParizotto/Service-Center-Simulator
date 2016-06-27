@@ -3,7 +3,9 @@
 
 void Server::start_serv( unsigned long GVT, agent user ){
     use = true;
-    
+    this->user = user;
+        
+
     total_idle++;
     total_idle_t+= (GVT - final_time);   
 
