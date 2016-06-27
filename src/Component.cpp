@@ -41,12 +41,12 @@ void Component::done( unsigned long GVT, Box * next){
 
 
 double Component::avg_queue_time( void ){
-    return this->queue_wait/this->queue_users;
+    return (double)this->queue_wait/this->queue_users;
 }
 
 
 double Component::avg_serving_time( void ){
-    return this->serving_time/this->done_users;
+    return (double)this->serving_time/this->done_users;
 }
 
 void Component::show_statistics( void ){
@@ -56,9 +56,10 @@ void Component::show_statistics( void ){
     std::cout << "tempo medio em fila: " << avg_queue_time() << "  Tempo medio de atendimento: " << avg_serving_time() << std::endl;
 
     for( int i = 0; i < numb_servers; i++ ){
+      //  if(!serv[i].use) serv[i].att_idle();
         double aux = serv[i].avg_idle();
         sum_avg+=aux;
-        std::cout << "      Tempo medio de atendimento de servidor" << i << ":" << aux << std::endl;
+        std::cout << "      Ociosidade do servidor" << i << ":" << aux << std::endl;
     }
         
 }

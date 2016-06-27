@@ -14,6 +14,7 @@ class Server{
 
         void start_serv( unsigned long, agent );
         double avg_idle( void );
+        void att_idle( unsigned long );
         
 };
 
