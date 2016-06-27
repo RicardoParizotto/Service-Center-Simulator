@@ -1,5 +1,6 @@
 #include "include/Simulation.hh"
 
+
 void Simulation::agent_generator( void ){
     agent aux;
 
@@ -13,7 +14,7 @@ void Simulation::agent_generator( void ){
 }
 
 
-void Simulation::start(){
+void Simulation::start( void ){
 	GVT = 0;
 	while( GVT <= this->ST ){
         for (int i = 0; i < qtd_cmp; i++){
@@ -23,5 +24,14 @@ void Simulation::start(){
 		for (int i = 0; i < qtd_rts; i++ )
 			routers[i].done(&centers[routers[i].out1.id_out], &centers[routers[i].out2.id_out]);
         GVT++;
+    }
+
+    show_statistics();
+}
+
+
+void Simulation::show_statistics( void ){
+    for(int i = 0; i < qtd_cmp; i++){
+        centers[i].show_statistics();
     }
 }

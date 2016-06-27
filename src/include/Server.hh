@@ -13,6 +13,7 @@ class Server{
         agent user;
 
         void start_serv( unsigned long, agent );
+        double avg_idle( void );
         
 };
 

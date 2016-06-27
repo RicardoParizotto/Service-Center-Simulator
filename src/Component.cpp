@@ -1,16 +1,5 @@
 #include "include/Component.hh"
 
-/*construtor
-void Component::Component(){
-        
-        queue_wait = 0; 	
-        queue_users = 0;
-        done_users = 0;      
-        serving_time = 0; 
-        LVT = 0; 
-}
-*/
-
 
 /*remove o usuário da fila se tiver servidor livre e coloca ele no servidor*/
 void Component::serving( unsigned long GVT ){
@@ -29,6 +18,7 @@ void Component::serving( unsigned long GVT ){
         }
     }
 }
+
 
 /*Caso um usuário tiver terminado seu atendimento ele é removido do servidor e colocado na fila de saída*/
 void Component::done( unsigned long GVT, Box * next){
@@ -49,6 +39,29 @@ void Component::done( unsigned long GVT, Box * next){
     }
 }
 
+
+double Component::avg_queue_time( void ){
+    return this->queue_wait/this->queue_users;
+}
+
+
+double Component::avg_serving_time( void ){
+    return this->serving_time/this->done_users;
+}
+
+void Component::show_statistics( void ){
+    double sum_avg = 0.;
+
+    std::cout << "\n\nComponente" << this->id << std::endl;
+    std::cout << "tempo medio em fila: " << avg_queue_time() << "  Tempo medio de atendimento: " << avg_serving_time() << std::endl;
+
+    for( int i = 0; i < numb_servers; i++ ){
+        double aux = serv[i].avg_idle();
+        sum_avg+=aux;
+        std::cout << "      Tempo medio de atendimento de servidor" << i << ":" << aux << std::endl;
+    }
+        
+}
 
 
 

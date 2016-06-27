@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <iostream>
 
 
 #define MAX_S 1000 				  //numero máximo de servidores -- infinito numero de servidores

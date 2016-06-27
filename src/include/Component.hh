@@ -3,7 +3,6 @@
 class Component : public Box{
 
     private:
-        unsigned long LVT;             //Local Virtual Time do componente
 
         /*variáveis para monitoramento*/								
         unsigned long queue_wait; 	    //tempo total de espera de usuários na fila do componente
@@ -21,7 +20,10 @@ class Component : public Box{
 
         void serving( unsigned long );
         void done( unsigned long, Box *);
-        void statistics( void );
+        double avg_queue_time( void );
+        double avg_serving_time( void );
+        void show_statistics ( void );
+
 };
 
 

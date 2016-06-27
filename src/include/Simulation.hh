@@ -3,7 +3,6 @@
 class Simulation{
     public:
 
-
         unsigned long GVT;                //global virtual time
         unsigned long ST;	              //SIMULATION TIME    
 
@@ -14,6 +13,8 @@ class Simulation{
 
         void agent_generator( void );
         void start( void );
+        void show_statistics( void );
 };
+
 
 static Simulation run;

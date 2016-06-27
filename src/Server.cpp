@@ -1,10 +1,14 @@
 #include "include/Server.hh"
 
 
+double Server::avg_idle( void ){
+    return this->total_idle_t/this->total_idle;
+}
+
+
 void Server::start_serv( unsigned long GVT, agent user ){
     use = true;
     this->user = user;
-        
 
     total_idle++;
     total_idle_t+= (GVT - final_time);   
