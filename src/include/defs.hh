@@ -18,9 +18,6 @@
 
 #define MAX_S 1000 				  //numero máximo de servidores -- infinito numero de servidores
 
-#define OUT 0
-#define NORMAL 1
-#define ROUTER 2
 
 struct agent{
     int id;
