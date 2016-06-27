@@ -3,7 +3,7 @@
 
 /*remove o usuário da fila se tiver servidor livre e coloca ele no servidor*/
 void Component::serving( unsigned long GVT ){
-    for ( int i = 0; i < numb_servers; i++ ){
+    for ( unsigned long i = 0; i < numb_servers; i++ ){
         if( !serv[i].use ){
             if( !queue.empty() && queue.front().time <= GVT ){                                           
                
@@ -22,7 +22,7 @@ void Component::serving( unsigned long GVT ){
 
 /*Caso um usuário tiver terminado seu atendimento ele é removido do servidor e colocado na fila de saída*/
 void Component::done( unsigned long GVT, Box * next){
-    for( int i = 0; i < numb_servers; i++ ){
+    for( unsigned long i = 0; i < numb_servers; i++ ){
         if(serv[i].use && serv[i].final_time == GVT){
             serv[i].use = false;
 
@@ -49,19 +49,20 @@ double Component::avg_serving_time( void ){
     return (double)this->serving_time/this->done_users;
 }
 
-void Component::show_statistics( void ){
+void Component::show_statistics( unsigned long GVT ){
     double sum_avg = 0.;
 
-    std::cout << "\n\nComponente" << this->id << std::endl;
+    std::cout << "\nComponente" << this->id << std::endl;
     std::cout << "tempo medio em fila: " << avg_queue_time() << "  Tempo medio de atendimento: " << avg_serving_time() << std::endl;
 
-    for( int i = 0; i < numb_servers; i++ ){
-      //  if(!serv[i].use) serv[i].att_idle();
+    for( unsigned long i = 0; i < numb_servers; i++ ){
+        if(!serv[i].use) serv[i].att_idle(GVT);
         double aux = serv[i].avg_idle();
         sum_avg+=aux;
-        std::cout << "      Ociosidade do servidor" << i << ":" << aux << std::endl;
+        std::cout << "  Ociosidade media do servidor" << i << ":" << aux << std::endl;
     }
-        
+    
+    std::cout <<"Ociosidade media do componente: "<< sum_avg/numb_servers << std::endl;
 }
 
 

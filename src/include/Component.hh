@@ -22,7 +22,7 @@ class Component : public Box{
         void done( unsigned long, Box *);
         double avg_queue_time( void );
         double avg_serving_time( void );
-        void show_statistics ( void );
+        void show_statistics ( unsigned long );
 
 };
 

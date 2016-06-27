@@ -4,7 +4,7 @@
 void Simulation::agent_generator( void ){
     agent aux;
 
-    for ( int qtd_agent = 0; qtd_agent < 8; qtd_agent++ ){
+    for ( int qtd_agent = 0; qtd_agent < 40000; qtd_agent++ ){
 
         aux.id = qtd_agent;
         aux.time = GVT;
@@ -15,7 +15,8 @@ void Simulation::agent_generator( void ){
 
 
 void Simulation::start( void ){
-	GVT = 0;
+
+
 	while( GVT <= this->ST ){
         for (int i = 0; i < qtd_cmp; i++){
             centers[i].done( GVT, (centers[i].out_t == 'D')? (Box*)&routers[centers[i].out]: (Box*)&centers[centers[i].out] );
@@ -26,12 +27,14 @@ void Simulation::start( void ){
         GVT++;
     }
 
+
+
     show_statistics();
 }
 
 
 void Simulation::show_statistics( void ){
     for(int i = 0; i < qtd_cmp; i++){
-        centers[i].show_statistics();
+        centers[i].show_statistics( this->GVT );
     }
 }

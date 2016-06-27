@@ -3,7 +3,7 @@
 
 
 
-int main ( void ){
+int main ( ){
     char in_t;
     int in_id;
 
@@ -20,7 +20,7 @@ int main ( void ){
                     run.qtd_cmp++;
                     run.centers[in_id].id = in_id;
                     scanf("%d", &run.centers[in_id].numb_servers);
-                    for ( int i = 0; i < run.centers[in_id].numb_servers; i++ )
+                    for ( unsigned long i = 0; i < run.centers[in_id].numb_servers; i++ )
                         scanf("%d-%d;", &run.centers[in_id].serv[i].min, &run.centers[in_id].serv[i].max);
                     scanf(" %c %d", &run.centers[in_id].out_t, &run.centers[in_id].out );
                     break;

@@ -10,9 +10,7 @@ void Server::start_serv( unsigned long GVT, agent user ){
     use = true;
     this->user = user;
 
-    att_idle( GVT );
-
-    printf("\n cu %lu %lu\n\n", total_idle, total_idle_t);
+    att_idle( GVT );            //atualiza estatísticas
 
     user.time = GVT;
     
