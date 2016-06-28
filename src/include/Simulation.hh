@@ -1,6 +1,10 @@
 #include "Router.hh"
 
 class Simulation{
+    private:
+        unsigned long qtd_agent_final;
+        unsigned long sum_agent_time;
+   
     public:
 
         unsigned long GVT;                //global virtual time

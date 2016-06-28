@@ -1,9 +1,7 @@
-
 #include "include/Simulation.hh"
 
 
-
-int main ( ){
+int main ( void ){
     char in_t;
     int in_id;
 
@@ -16,7 +14,7 @@ int main ( ){
 
     while(scanf(" %c %d", &in_t, &in_id )!= EOF){
         switch(in_t){
-            case 'C':
+            case 'C':           //caso for um componente
                     run.qtd_cmp++;
                     run.centers[in_id].id = in_id;
                     scanf("%d", &run.centers[in_id].numb_servers);
@@ -24,7 +22,7 @@ int main ( ){
                         scanf("%d-%d;", &run.centers[in_id].serv[i].min, &run.centers[in_id].serv[i].max);
                     scanf(" %c %d", &run.centers[in_id].out_t, &run.centers[in_id].out );
                     break;
-            case 'D': 
+            case 'D':           //caso for um roteador
                     run.qtd_rts++;
                     scanf(" %c %d %u", &run.routers[in_id].out1.out_t, &run.routers[in_id].out1.id_out, &run.routers[in_id].out1.prob);
                     scanf(" %c %d %u", &run.routers[in_id].out2.out_t, &run.routers[in_id].out2.id_out, &run.routers[in_id].out2.prob);

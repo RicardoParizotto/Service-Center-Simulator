@@ -9,9 +9,12 @@ class Component : public Box{
         unsigned long queue_users;      //número de usuários de usuários que passaram entraram no componente
         unsigned long done_users;       //número de usuários que concluiram o atendimento
         unsigned long serving_time;     //Somatorio de tempo de atendimento dos usuarios neste componente
-        
+
 	                            
     public:
+        double avg_idle;                //media de ociosidade do componente
+        double avg_queue;               //media de tempo na fila
+        double avg_serv;                //media de tempo no componente
 
         unsigned int numb_servers;  
         Server serv[MAX_S];                 
@@ -19,9 +22,7 @@ class Component : public Box{
         char out_t;
 
         void serving( unsigned long );
-        void done( unsigned long, Box *);
-        double avg_queue_time( void );
-        double avg_serving_time( void );
+        unsigned long done( unsigned long, Box *);
         void show_statistics ( unsigned long );
 
 };

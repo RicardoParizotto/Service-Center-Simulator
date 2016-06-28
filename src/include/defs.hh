@@ -1,6 +1,6 @@
 /*UNIVERSIDADE FEDERAL DA FRONTEIRA SUL - CHAPECÓ
  *
- * Autor: RICARDO PARIZOTTO
+ * Autores: RICARDO PARIZOTTO, MAIKON PEREIRA
  *
  */
 
@@ -18,6 +18,7 @@
 
 #define MAX_S 1000 				  //numero máximo de servidores -- infinito numero de servidores
 
+#define NONFINAL 0
 
 struct agent{
     int id;
