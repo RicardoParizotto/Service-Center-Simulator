@@ -52,5 +52,5 @@ void Simulation::show_statistics( void ){
     }
 
     std::cout << "Tempo médio de permanência no modelo: " << (double)sum_agent_time/qtd_agent_final << 
-    "  \nOciosidade média geral: " << (double)sum_idle_med/qtd_agent_final << std::endl;
+    "  \nOciosidade média geral: " << (double)sum_idle_med/qtd_cmp << std::endl;
 }
